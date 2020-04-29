@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
+import './Navbar.css';
 
 
 class Navbar extends Component {
@@ -11,13 +12,17 @@ class Navbar extends Component {
                 <div className="logo">
                     <a href="#">VIBGYOR</a>
                 </div>
-                <div className="slider">
-                <Slider defaultValue={level}
-                 min={100} 
-                 max={900}
-                 step={100}
-                 onAfterChange={changeLevel} />
-                 </div>
+                <div className="slider-container">
+                    <span>level : {level}</span>
+                    <div className="slider">
+                        <Slider defaultValue={level}
+                        min={100} 
+                        max={900}
+                        step={100}
+                        onAfterChange={changeLevel} />
+                    </div>
+                </div>
+              
             </header>
         )
     }
