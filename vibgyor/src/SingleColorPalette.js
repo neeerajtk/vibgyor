@@ -37,7 +37,7 @@ class SingleColorPalette extends Component {
       />
     ));
     return (
-      <div className='Palette'>
+      <div className='Palette SingleColorPalette'>
         <Navbar handleChange={this.changeFormat} showingAllColors={false}/>
         <div className='Palette-colors'>{colorBoxes}</div>
         <PaletteFooter paletteName={paletteName} emoji={emoji}/>

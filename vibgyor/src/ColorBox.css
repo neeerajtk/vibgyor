@@ -7,6 +7,10 @@
     cursor: pointer;   
     margin-bottom: -3.5px;
 }
+.SingleColorPalette .ColorBox{
+    height: 50%;
+}
+
 .copy-button{
     width:100px;
     height: 30px;
