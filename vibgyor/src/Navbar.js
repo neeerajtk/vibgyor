@@ -41,6 +41,7 @@ class Navbar extends Component {
                 <div className="logo">
                     <Link to="/">VIBGYOR</Link>
                 </div>
+                {this.props.showingAllColors && ( 
                 <div className="slider-container">
                     <span>level : {level}</span>
                     <div className="slider">
@@ -51,6 +52,7 @@ class Navbar extends Component {
                         onAfterChange={changeLevel} />
                     </div>
                 </div>
+                )}
                 <div className="select-container">
                     <Select value={format} onChange={this.handleFormatChange}>
                         <MenuItem value="hex">HEX - #ffffff </MenuItem>

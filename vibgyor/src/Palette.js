@@ -34,6 +34,7 @@ class Palette extends Component {
           level={level}
           changeLevel={this.changeLevel}
           handleChange={this.changeFormat}
+          showingAllColors
         />
         <div className='Palette-colors'>{colorBoxes}</div>
         <footer className='Palette-footer'>
