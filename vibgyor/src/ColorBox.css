@@ -10,8 +10,12 @@
 .SingleColorPalette .ColorBox{
     height: 50%;
 }
+.ColorBox.go-back{
+    background-color: black;
+}
 
-.copy-button{
+.copy-button,
+.back-button{
     width:100px;
     height: 30px;
     position: absolute;
@@ -28,7 +32,11 @@
     color: white;
     text-transform: uppercase;
     border: none;
+    text-decoration: none;
+}
+.copy-button{
     opacity: 0;
+
 }
 
 .ColorBox:hover .copy-button{
