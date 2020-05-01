@@ -73,9 +73,15 @@ const styles = theme => ({
 });
 
 class NewPaletteForm extends Component {
-  state = {
-    open: false
-  };
+   constructor(props){
+       super(props);
+       this.state = {
+           open: true,
+           currentColor: "teal"
+       };
+       this.updateCurrentColor = this.updateCurrentColor.bind(this);
+   }
+    
 
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -85,6 +91,9 @@ class NewPaletteForm extends Component {
     this.setState({ open: false });
   };
 
+  updateCurrentColor(newColor){
+      this.setState({currentColor: newColor.hex})
+  }
   render() {
     const { classes } = this.props;
     const { open } = this.state;
@@ -137,10 +146,10 @@ class NewPaletteForm extends Component {
             </Button>
           </div>
           <ChromePicker 
-          color="purple"
-          onChangeComplete={newColor=>console.log(newColor)}
+          color={this.state.currentColor}
+          onChangeComplete={this.updateCurrentColor}
            />
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" style={{backgroundColor: this.state.currentColor}}>
             Add Color
         </Button>
         </Drawer>
