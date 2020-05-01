@@ -1,63 +1,17 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import {withStyles} from '@material-ui/styles';
+
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Snackbar from '@material-ui/core/Snackbar';
 import CloseIcon from '@material-ui/icons/Close';
-import IconButton from '@material-ui/core/IconButton';
-import {withStyles} from '@material-ui/styles';
-
 import Slider from 'rc-slider';
+import IconButton from '@material-ui/core/IconButton';
+
+import styles from './styles/NavbarStyles';
 import 'rc-slider/assets/index.css';
 
-
-const styles = {
-    Navbar:{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "flex-start",
-        height: "6vh",
-    },
-    logo:{
-        marginRight: "15px",
-        padding: "0 13px",
-        fontSize: "22px",
-        backgroundColor: "#eceff1",
-        fontFamily: "Roboto",
-        height: "100%",
-        display: "flex",
-        alignItems: "center",
-        "& a":{
-            textDecoration: "none",
-            color: "black"
-        }
-    },     
-    slider: {
-        width: "340px",
-        margin: "0 10px",
-        display: "inline-block",
-        "& .rc-slider-track:" :{
-            backgroundColor: "transparent"
-        },
-        "& .rc-slider-rail":{
-            height:"8px"
-        },
-        "& .rc-slider-handle,.rc-slider-handle:active,.rc-slider-handle:focus,.rc-slider-handle:hover ":{
-            backgroundColor: "green",
-            outline: "none",
-            border: "2px solid green",
-            boxShadow: "none",
-            width: "13px",
-            height: "13px",
-            marginLeft: "7px",
-            marginTop: "-3px"
-        }
-    },
-    selectContainer:{
-        marginLeft: "auto",
-        marginRight: "1rem"
-    }
-}
 
 
 
