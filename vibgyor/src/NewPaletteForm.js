@@ -60,7 +60,7 @@ const styles = theme => ({
   content: {
     flexGrow: 1,
     height: "calc(100vh - 64px)",
-    padding: theme.spacing.unit * 3,
+    padding: theme.spacing(3),
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
@@ -91,6 +91,8 @@ class NewPaletteForm extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.removeColor = this.removeColor.bind(this);
+    this.clearColors = this.clearColors.bind(this);
+    this.addRandomColor = this.addRandomColor.bind(this);
   }
   componentDidMount() {
     ValidatorForm.addValidationRule("isColorNameUnique", value =>
@@ -135,6 +137,18 @@ class NewPaletteForm extends Component {
       [evt.target.name]: evt.target.value
     });
   }
+    clearColors(){
+        this.setState({
+            colors:[]
+        })
+    }
+    addRandomColor(){
+        const allColors = this.props.palettes.map(p=>p.colors).flat();
+        var rand=Math.floor(Math.random()*allColors.length);
+        const randomColor = allColors[rand];
+        this.setState({colors:[...this.state.colors, randomColor]});
+    }
+
   handleSubmit() {
     let newName = this.state.newPaletteName;
     const newPalette = {
@@ -214,10 +228,14 @@ class NewPaletteForm extends Component {
           <Divider />
           <Typography variant='h4'>Design Your Palette</Typography>
           <div>
-            <Button variant='contained' color='secondary'>
+            <Button variant='contained'
+             color='secondary' 
+             onClick={this.clearColors} >
               Clear Palette
             </Button>
-            <Button variant='contained' color='primary'>
+            <Button variant='contained' 
+            color='primary' 
+            onClick={this.addRandomColor}>
               Random Color
             </Button>
           </div>
