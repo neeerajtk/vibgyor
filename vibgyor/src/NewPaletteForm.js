@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import {Link} from "react-router-dom";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import PaletteFormNav from "./PaletteFormNav";
+import ColorPickerForm from "./ColorPickerForm";
 import Drawer from "@material-ui/core/Drawer";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
@@ -211,36 +211,7 @@ class NewPaletteForm extends Component {
               Random Color
             </Button>
           </div>
-          <ChromePicker
-            color={this.state.currentColor}
-            onChangeComplete={this.updateCurrentColor}
-          />
-          <ValidatorForm onSubmit={this.addNewColor} ref='form'>
-            <TextValidator
-              value={this.state.newColorName}
-              name='newColorName'
-              onChange={this.handleChange}
-              validators={["required", "isColorNameUnique", "isColorUnique"]}
-              errorMessages={[
-                "Enter a color name",
-                "Color name must be unique",
-                "Color already used!"
-              ]}
-            />
-            <Button
-              variant='contained'
-              type='submit'
-              color='primary'
-              disabled={paletteIsFull}
-              style={{
-                backgroundColor: paletteIsFull
-                  ? "grey"
-                  : this.state.currentColor
-              }}
-            >
-              {paletteIsFull ? "Palette Full" : "Add Color"}
-            </Button>
-          </ValidatorForm>
+         <ColorPickerForm paletteIsFull={paletteIsFull}/>
         </Drawer>
         <main
           className={classNames(classes.content, {
