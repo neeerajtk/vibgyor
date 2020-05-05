@@ -1,18 +1,28 @@
+
 import sizes from "./sizes";
 import bg from "./bg.svg";
-
 export default {
+  "@global": {
+    ".fade-exit": {
+      opacity: 1
+    },
+    ".fade-exit-active": {
+      opacity: 0,
+      transition: "opacity 500ms ease-out"
+    }
+  },
   root: {
-        height: "100vh",
+    height: "100vh",
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "center",
-    backgroundColor: "#000000",
+    /* background by SVGBackgrounds.com */
+    backgroundColor: "#394bad",
     backgroundImage: `url(${bg})`,
     overflow: "scroll"
   },
-  heading:{
-    fontSize:"2rem"
+  heading: {
+    fontSize: "2rem"
   },
   container: {
     width: "50%",
